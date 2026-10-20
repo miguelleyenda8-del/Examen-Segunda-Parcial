@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Ciclos.razor/Ciclos.razor.Client/Ciclos.razor.Client.csproj" />
+  <Project Path="Ciclos.razor/Ciclos.razor/Ciclos.razor.csproj" />
+</Solution>

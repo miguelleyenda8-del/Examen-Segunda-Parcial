@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    @page "/ciclos"
+    @rendermode InteractiveServer
+
+    <h3>Calificaciones</h3>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <label class="form-label" for="txtNumero">Calificacion:</label>
+            <input type="number" id="txtNumero" class="form-control" @bind="numero" />
+        </div>
+    </div>
+    <button class="btn btn-primary" @onclick="Ejecutar">Guardar</button>
+    <h2>Calificaciones capturadas: @calificaciones.count</h2>
+    <hr/>
+    <table class="table table-striped">
+        <thead>
+            <tr>calificaciones</tr>
+        </thead>
+        <tbody>
+            @for (int i=0; i< calificaciones .Count; i++)
+            {
+            <tr><td>@calificaciones [i]</td><</tr>
+            <td><button class=" btn btn-sm btg-danger"@onclik="() => Eliminar (i)">Eliminar</button></td>
+            } *@
+            @foreach(int valor in calificaciones)
+            {
+            <<tr><<td>@valor</td></tr>
+            }
+        </tbody>
+        </table>
+    <div class="mt-4">
+        @((MarkupString)salida)
+    </div>
+
+    @code {
+    private List<int>calificaciones = new();
+    private int numero;
+    private string salida = "";
+    private void Ejecutar()
+
+    private void Eliminar ()
+    {
+    claificaciones 
+    }
+
+    {
+    calificaciones .Add(numero);
+    salida = "<table class='table table-bordered text-center' style='width: 300px;'>
+        ";
+        salida += "
+        <thead class='table-dark'><tr><th>Pares</th><th>Impares</th></tr></thead>";
+        salida += "
+        <tbody>
+            ";
+            for (int indice = 1; indice <= numero; indice += 2)
+            {
+            int impar = indice;
+            int par = indice + 1;
+
+            salida += "
+            <tr>
+                ";
+
+                // Columna de números PARES
+                if (par <= numero)
+                {
+                salida += $"
+                <td>{par}</td>";
+                }
+                else
+                {
+                salida += "
+                <td></td>"; // Celda vacía si ya pasamos el número máximo
+                }
+
+                // Columna de números IMPARES
+                salida += $"
+                <td>{impar}</td>";
+
+                salida += "
+            </tr>";
+            }
+
+            salida += "
+        </tbody>
+    </table>";
+    }
+    }
+</body>
+</html>
